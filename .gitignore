@@ -1,0 +1,18 @@
+# 敏感/本地文件，绝不入库
+cookie.txt
+cookie_backup.txt
+browser_profile/
+downloads/
+ref_js/
+js_resources.json
+request_capture.jsonl
+*.b64
+login_qr.png
+page_state.png
+
+# Python
+__pycache__/
+*.pyc
+
+# 其他
+*.log
