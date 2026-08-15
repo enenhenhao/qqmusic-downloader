@@ -67,7 +67,8 @@ def main():
         purl, info = qc.vkey_new(song["songmid"], args.quality, uin, cookie)
         print("新协议:", info)
     except Exception as e:  # noqa: BLE001
-        print("新协议失败:", e)
+        msg = (str(e) or "").splitlines()[0][:90]
+        print(f"新协议不可用（{msg}），回退旧协议。提示：先运行 dl_js.py 抓取 JS 素材可启用新协议")
     if not purl:
         guid = api.gen_guid()
         purl = api.get_play_url(song["songmid"], guid, args.quality, uin, cookie)
