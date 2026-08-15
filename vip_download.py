@@ -98,7 +98,8 @@ def main():
         try:  # 新协议优先
             purl, info = qc.vkey_new(song["songmid"], quality, uin, cookie)
         except Exception as e:  # noqa: BLE001
-            info = f"新协议异常: {e}"
+            msg = (str(e) or "").splitlines()[0][:90]
+            info = f"新协议不可用（{msg}）"
         if not purl:  # 回退旧协议
             guid = api.gen_guid()
             try:
